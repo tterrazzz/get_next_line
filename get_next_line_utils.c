@@ -12,11 +12,21 @@
 
 #include "get_next_line.h"
 
+/* Sets all elements to the chosen value within a chosen length
+ *
+ * @param b: pointer to the element to set value for
+ * @param c: chosen value
+ * @param len: chosen length
+ *
+ * @return the pointer back after the setting
+ */
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
 	char	*str;
 
+  if (!b)
+    return (NULL);
 	str = b;
 	i = 0;
 	while (i < len)
@@ -27,6 +37,14 @@ void	*ft_memset(void *b, int c, size_t len)
 	return (b);
 }
 
+/* Joins two arrays of char and frees these
+ *
+ * @param s1: first array of char
+ * @param s2: second array of char
+ *
+ * @return a dynamically memory allocated array of char resulting
+ * of concatening of the second chosen array at the end of the first one
+ */
 char	*ft_strjoin(char **s1, char **s2)
 {
 	int		i;
@@ -56,10 +74,18 @@ char	*ft_strjoin(char **s1, char **s2)
 	return (str);
 }
 
+/* Search if the chosen value is found inside the array of char
+ *
+ * @param s: array of char
+ *
+ * @return 
+ */
 int	ft_strchr_int(const char *s, int c)
 {
 	int	i;
 
+  if (!s)
+    return (-1);
 	i = 0;
 	while (s[i] != (char) c)
 	{
@@ -70,6 +96,12 @@ int	ft_strchr_int(const char *s, int c)
 	return (i + 1);
 }
 
+/* Give the length of the array of char
+ *
+ * @param str: array of char
+ *
+ * @return the array's length
+ */
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;
